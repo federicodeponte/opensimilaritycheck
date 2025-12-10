@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opensimilaritycheck"
+version = "1.0.0"
+authors = [
+    {name = "Federico De Ponte", email = "federicodeponte@example.com"},
+]
+description = "Content similarity detection for blog workflows using hybrid approaches"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+gemini = [
+    "google-generativeai>=0.3.0",
+]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+]
+
+[project.urls]
+Homepage = "https://github.com/federicodeponte/opensimilaritycheck-standalone"
+Repository = "https://github.com/federicodeponte/opensimilaritycheck-standalone"
+Issues = "https://github.com/federicodeponte/opensimilaritycheck-standalone/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
